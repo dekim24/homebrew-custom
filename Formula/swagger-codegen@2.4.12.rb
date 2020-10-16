@@ -11,7 +11,7 @@ class SwaggerCodegenAT2412 < Formula
 
   def install
     # Need to set JAVA_HOME manually since maven overrides 1.8 with 1.7+
-    cmd = Language::Java.java_home_cmd("1.8")
+    cmd = Language::Java.java_home("1.8")
     ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
 
     system "mvn", "clean", "package"
